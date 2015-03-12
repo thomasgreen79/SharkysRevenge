@@ -27,25 +27,22 @@ public class ProjectSphere : MonoBehaviour {
 
 		Vector3 currentVel = rigidbody.velocity;
 
-		if (transform.position.x > arenaSize) {
-			transform.position = new Vector3(arenaSize, initialPos.y, transform.position.z);
-			rigidbody.velocity = new Vector3(-currentVel.x, 0.0f, currentVel.z);
-		} else if (transform.position.x < -arenaSize) {
-			transform.position = new Vector3(-arenaSize, initialPos.y, transform.position.z);
-			rigidbody.velocity = new Vector3(-currentVel.x, 0.0f, currentVel.z);
-		}
+		if (arenaSize != 0) {
+			if (transform.position.x > arenaSize) {
+				transform.position = new Vector3(arenaSize, initialPos.y, transform.position.z);
+				rigidbody.velocity = new Vector3(-currentVel.x, 0.0f, currentVel.z);
+			} else if (transform.position.x < -arenaSize) {
+				transform.position = new Vector3(-arenaSize, initialPos.y, transform.position.z);
+				rigidbody.velocity = new Vector3(-currentVel.x, 0.0f, currentVel.z);
+			}
 
-		if (transform.position.z > arenaSize) {
-			transform.position = new Vector3(transform.position.x, initialPos.y, arenaSize);
-			rigidbody.velocity = new Vector3(currentVel.x, 0.0f, -currentVel.z);
-		} else if (transform.position.z < -arenaSize) {
-			transform.position = new Vector3(transform.position.x, initialPos.y, -arenaSize);
-			rigidbody.velocity = new Vector3(currentVel.x, 0.0f, -currentVel.z);
-		}
-
-		if (transform.position.y != initialPos.y) {
-			transform.position = new Vector3(transform.position.x, initialPos.y, transform.position.z);
-			rigidbody.velocity = new Vector3(currentVel.x, 0.0f, currentVel.z);
+			if (transform.position.z > arenaSize) {
+				transform.position = new Vector3(transform.position.x, initialPos.y, arenaSize);
+				rigidbody.velocity = new Vector3(currentVel.x, 0.0f, -currentVel.z);
+			} else if (transform.position.z < -arenaSize) {
+				transform.position = new Vector3(transform.position.x, initialPos.y, -arenaSize);
+				rigidbody.velocity = new Vector3(currentVel.x, 0.0f, -currentVel.z);
+			}
 		}
 	}
 
