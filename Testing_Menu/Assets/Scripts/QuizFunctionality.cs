@@ -7,6 +7,7 @@ public class QuizFunctionality : MonoBehaviour {
 	public int answer = 2;
 	public bool selSubmit;
 	public bool showText = false;
+	public bool answeredCorrectly = false;
 
 	// Use this for initialization
 	void Start () {
@@ -38,8 +39,9 @@ public class QuizFunctionality : MonoBehaviour {
 						if (selGridInt != -1) {
 								Debug.Log ("You chose " + selStrings [selGridInt]);
 								if (selGridInt == answer) {
-										Application.LoadLevel ("Lesson1Page5");
+									answeredCorrectly = true;
 								}
+								Application.LoadLevel ("Lesson1Quiz1Completed");
 						} else {
 								showText = true;
 								Debug.Log ("You must first select an answer to submit");
