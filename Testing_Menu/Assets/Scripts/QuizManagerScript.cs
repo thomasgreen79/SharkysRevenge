@@ -1,51 +1,70 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class QuizManagerScript : MonoBehaviour {
 	
-	private class QuizStats : MonoBehaviour{
-		static ArrayList quizStatuses;
-		static ArrayList quizCorrectAnswers;
-		static ArrayList quizUserAnswers;
-		
-		public QuizStats(int numQuizzes, ArrayList correctAnswersList){
-			quizStatuses = new ArrayList();
-			quizCorrectAnswers = new ArrayList ();
-			quizUserAnswers = new ArrayList ();
-			
-			for (int i=0; i < numQuizzes; i++) {
-				quizStatuses.Add (true);
-				quizCorrectAnswers.Add (correctAnswersList[i]);
-				quizUserAnswers.Add (-1);
-			}
-		}
-		
-		public void setQuizCompleted(int quizNum){
-			quizStatuses [quizNum - 1] = false;
-		}
-		
-		public bool getQuizStatus(int quizNum){
-			return (bool)quizStatuses [quizNum - 1];
-		}
+	private static QuizData Lesson1;
+	private static QuizData Lesson2;
+	private static QuizData Lesson3;
+	
+	public void initLesson1(int numQuizzes){
+		List<int> answers = new List<int> ();
+		answers.Add (3);
+		answers.Add (2);
+		answers.Add (1);
+		Lesson1 = new QuizData (numQuizzes, answers);
 	}
 	
-	private ArrayList qStats = new ArrayList();
-	
-	public void init(int numLessons, ArrayList numQuizzes, ArrayList correctAnswersList){
-		for (int i=0; i < numLessons; i++) {
-			qStats.Add (new QuizStats ((int)numQuizzes [i], (ArrayList)correctAnswersList [i]));
-		}
+	public void initLesson2(int numQuizzes){
+		List<int> answers = new List<int> ();
+		answers.Add (3);
+		answers.Add (2);
+		answers.Add (1);
+		Lesson2 = new QuizData (numQuizzes, answers);
 	}
 	
-	public void setQuizCompleted(int lessonNum, int quizNum){
-		((QuizStats)qStats[lessonNum - 1]).setQuizCompleted(quizNum);
+	public void initLesson3(int numQuizzes){
+		List<int> answers = new List<int> ();
+		answers.Add (3);
+		answers.Add (2);
+		answers.Add (1);
+		Lesson3 = new QuizData (numQuizzes, answers);
 	}
 	
-	public void loadQuiz(int lessonNum, int quizNum){
-		if (((QuizStats)qStats [lessonNum - 1]).getQuizStatus(quizNum)) {
-			Application.LoadLevel(16);
+	public void setQuizCompletedInOne(int quizNum){
+		Lesson1.setQuizCompleted (quizNum);
+	}
+	
+	public void setQuizCompletedInTwo(int quizNum){
+		Lesson2.setQuizCompleted (quizNum);
+	}
+	
+	public void setQuizCompletedInThree(int quizNum){
+		Lesson3.setQuizCompleted (quizNum);
+	}
+	
+	public void loadQuizInOne(int quizNum){
+		if (!Lesson1.getQuizCompleted(quizNum)) {
+			Application.LoadLevel("Lesson1Quiz" + quizNum);
 		} else {
-			Application.LoadLevel(18);
+			Application.LoadLevel("Lesson1QuizCompleted" + quizNum);
+		}
+	}
+	
+	public void loadQuizInTwo(int quizNum){
+		if (!Lesson2.getQuizCompleted(quizNum)) {
+			Application.LoadLevel("Lesson2Quiz" + quizNum);
+		} else {
+			Application.LoadLevel("Lesson2QuizCompleted" + quizNum);
+		}
+	}
+	
+	public void loadQuizInThree(int quizNum){
+		if (!Lesson3.getQuizCompleted(quizNum)) {
+			Application.LoadLevel("Lesson3Quiz" + quizNum);
+		} else {
+			Application.LoadLevel("Lesson3QuizCompleted" + quizNum);
 		}
 	}
 }
