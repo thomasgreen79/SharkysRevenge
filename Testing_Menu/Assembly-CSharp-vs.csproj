@@ -53,6 +53,10 @@
      <Compile Include="Assets\DemoAssets\Scripts\PocketCollisions.cs" />
      <Compile Include="Assets\DemoAssets\Scripts\SceneChange.cs" />
      <Compile Include="Assets\DemoAssets\Scripts\TouchInput.cs" />
+     <Compile Include="Assets\GetSphereDirection.cs" />
+     <Compile Include="Assets\Physics Demos\Scripts\Arrows\DirectionArrow.cs" />
+     <Compile Include="Assets\Physics Demos\Scripts\Arrows\DirectionArrowWrapper.cs" />
+     <Compile Include="Assets\Physics Demos\Scripts\Arrows\SwapDirectionArrowText.cs" />
      <Compile Include="Assets\Physics Demos\Scripts\Boundary.cs" />
      <Compile Include="Assets\Physics Demos\Scripts\MoreInfo\MoreHideInfo.cs" />
      <Compile Include="Assets\Physics Demos\Scripts\MoreInfo\MoreHideInfoWrapper.cs" />
