@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+namespace Quizzes{
 public class QuizData {
 
 	private List<bool> quizCompleted;
@@ -38,4 +39,5 @@ public class QuizData {
 	public void setUserAnswer(int index, int answer){
 		userAnswers [index] = answer;
 	}
+}
 }
