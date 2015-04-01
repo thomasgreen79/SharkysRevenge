@@ -25,16 +25,26 @@ namespace Navigation {
 					Assert.AreEqual(testLevelName, actualLevelName);
 				}
 
+				[Test]
+				public void ChangeSceneNotCorrect (){
+					UIManagerScript testObject2 = new UIManagerScript();
+					String testLevelName = "LessonMenu";
+					String notCorrectName = "not correct";
+					testObject2.changeSceneButton(testLevelName);
+					String actualLevelName = Application.loadedLevelName;
+			
+					Assert.AreNotEqual(notCorrectName , actualLevelName);
+				}
 
-//				[Test]
-//				public void ChangeSceneNotCorrect (){
-//					UIManagerScript testObject2 = new UIManagerScript();
-//					String testLevelName = "LessonMenu";
-//					testObject2.changeSceneButton(testLevelName);
-//					String actualLevelName = Application.loadedLevelName;
-//			
-//					Assert.AreEqual("not correct", actualLevelName);
-//				}
+				[Test]
+				public void ChangeSceneNotRealLevelName (){
+					UIManagerScript testObject3 = new UIManagerScript();
+					String testLevelName = "NotARealLevelName";
+					testObject3.changeSceneButton(testLevelName);
+					String actualLevelName = Application.loadedLevelName;
+
+					Assert.AreNotEqual(testLevelName , actualLevelName);
+				}
 		}
 }
 
