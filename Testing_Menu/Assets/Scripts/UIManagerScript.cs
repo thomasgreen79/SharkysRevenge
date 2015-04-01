@@ -7,9 +7,5 @@ public class UIManagerScript : MonoBehaviour {
 	{
 		Application.LoadLevel(sceneName);
 	}
-
-	public void printRes(){
-		print ("Current width is: " + Screen.width);
-		print ("Current height is: " + Screen.height);
-	}
+	
 }
