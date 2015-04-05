@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UIManagerScript : MonoBehaviour {
+public class UIManagerScript : ScriptableObject {
 
 	public void changeSceneButton(string sceneName)
 	{
