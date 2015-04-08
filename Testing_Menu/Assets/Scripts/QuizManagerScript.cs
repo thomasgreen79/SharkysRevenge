@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 namespace Quizzes{
-public class QuizManagerScript : MonoBehaviour {
+public class QuizManagerScript : ScriptableObject {
 	
 	private static List<QuizData> Lessons;
 	private string[] selStrings1 = new string[] {
@@ -50,6 +50,10 @@ public class QuizManagerScript : MonoBehaviour {
 			answers2.Add (0);
 			Lessons.Add (new QuizData (answers2.Count, answers2, texts));
 		}
+	}
+
+	public List<QuizData> getLessons(){
+		return Lessons;
 	}
 
 	public int getUserAnswer(int lessonNum, int quizNum){

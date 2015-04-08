@@ -98,5 +98,11 @@ namespace Quizzes{
 			int result = qd.getNumPossibleAnswers(0);
 			Assert.AreEqual (1, result);
 		}
+		[Test]
+		public void initLessonsManagerScript(){
+			QuizManagerScript qms = ScriptableObject.CreateInstance ("QuizManagerScript") as QuizManagerScript;
+			qms.initLessons ();
+			Assert.IsNotNull (qms.getLessons());
+		}
 	}
 }
