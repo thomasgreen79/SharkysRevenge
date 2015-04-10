@@ -113,8 +113,9 @@ public class QuizManagerScript : ScriptableObject {
 		if (Lessons == null) {
 			initLessons ();
 		}
-		int lessonNum = 1;
-		int quizNum = 1;
+		string[] numStrings = nums.Split (' ');
+		int lessonNum = int.Parse (numStrings[0]);
+		int quizNum = int.Parse (numStrings[1]);
 		if (!Lessons[lessonNum-1].getQuizCompleted(quizNum-1)) {
 			Application.LoadLevel("Lesson" + lessonNum + "Quiz" + quizNum);
 		} else {
