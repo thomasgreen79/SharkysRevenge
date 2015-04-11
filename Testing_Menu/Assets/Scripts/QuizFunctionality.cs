@@ -60,11 +60,12 @@ public class QuizFunctionality : MonoBehaviour {
 				GUI.contentColor = Color.black;
 				*/
 			selSubmit = GUILayout.Button ("Submit", gStyle);
-			GUILayout.EndArea();
 
 			if (showText) {
 				GUILayout.Label ("Please select an answer first");
 			}
+			GUILayout.EndArea();
+
 			if (selSubmit) {
 				if (selGridInt != -1) {
 					//Debug.Log ("You chose " + selStrings2 [selGridInt]);
