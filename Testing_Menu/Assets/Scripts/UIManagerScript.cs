@@ -7,7 +7,10 @@ public class UIManagerScript : ScriptableObject {
 
 	private static List<string> accessibleScenes;
 	private bool canAdd;
-	public Text userFeedback;
+	private bool newTouch;
+	private bool updatingFeedback;
+	public GameObject userFeedback;
+
 
 	public void init(){
 		canAdd = false;
@@ -45,17 +48,25 @@ public class UIManagerScript : ScriptableObject {
 				Debug.LogError ("Failed to load scene: " + sceneName);
 			}
 		} else {
-			if(!userFeedback.gameObject.activeSelf){
-				userFeedback.gameObject.SetActive(true);
-			}
+			updatingFeedback = true;
+			userFeedback.SetActive(true);
 		}
 	}
 
 	void Update(){
-		int numTouches = Input.touchCount;
+		newTouch = false;
+		updatingFeedback = false;
 		if (userFeedback != null) {
-			if (Input.GetMouseButton (0) || numTouches > 0) {
-				userFeedback.gameObject.SetActive (false);
+			if (Input.GetMouseButton (0)) {
+				userFeedback.SetActive (false);
+			}
+			if (Input.touchCount > 0){
+				if (Input.GetTouch(0).phase == TouchPhase.Began){
+					newTouch = true;
+				}
+				if (newTouch && !updatingFeedback){
+					userFeedback.SetActive (false);
+				}
 			}
 		}
 	}
