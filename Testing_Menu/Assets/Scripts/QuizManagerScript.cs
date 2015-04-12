@@ -84,17 +84,27 @@ public class QuizManagerScript : ScriptableObject {
 		return Lessons [lessonNum - 1].getTexts (quizNum);
 	}
 
-	public void setUserAnswer(int lessonNum, int quizNum, int answer){
+	public void setUserAnswer(string input){
+		if (Lessons == null) {
+			initLessons ();
+		}
+		string[] numStrings = input.Split (' ');
+		int lessonNum = int.Parse (numStrings[0]);
+		int quizNum = int.Parse (numStrings[1]);
+		int answer = int.Parse (numStrings[2]);
 		if (Lessons == null) {
 			initLessons ();
 		}
 		Lessons[lessonNum-1].setUserAnswer(quizNum-1, answer);
 	}
 
-	public void setQuizCompleted(int lessonNum, int quizNum){
+	public void setQuizCompleted(string input){
 		if (Lessons == null) {
 			initLessons ();
 		}
+			string[] numStrings = input.Split (' ');
+			int lessonNum = int.Parse (numStrings[0]);
+			int quizNum = int.Parse (numStrings[1]);
 		Lessons[lessonNum-1].setQuizCompleted (quizNum-1);
 	}
 
