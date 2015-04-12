@@ -22,28 +22,23 @@ public class ProjectSphere : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		line = gameObject.AddComponent<LineRenderer>();
-
-		line.SetVertexCount (2);
-		line.SetColors (Color.green, Color.green);
-		line.SetWidth (1.5f, 0f);
-
-		line.material = new Material(Shader.Find("Particles/Additive"));
+		line = gameObject.GetComponent<LineRenderer>();
 
 		drawDirectionLine ();
 
 		initialPos = transform.position;
 		pausedPos = transform.position;
 
-		float x = Mathf.Cos (angle / RAD) * speed;
-		float z = Mathf.Sin (angle / RAD) * speed;
+		float x = Mathf.Sin (angle / RAD) * speed;
+		float z = Mathf.Cos (angle / RAD) * speed;
 
 		initialVel = new Vector3 (x, 0, z);
 		pausedVel = initialVel;
 
 		rigidbody.velocity = initialVel;
 	}
-	
+
+
 	// Update is called once per frame.
 	void Update() {
 
@@ -119,6 +114,7 @@ public class ProjectSphere : MonoBehaviour {
 			line.enabled = false;
 			return;
 		}
+
 		line.enabled = true;
 
 		float curAngle, lineX, lineZ, scaleX, scaleZ;
@@ -144,4 +140,5 @@ public class ProjectSphere : MonoBehaviour {
 		transform.position = initialPos;
 		rigidbody.velocity = initialVel;
 	}
+
 }
