@@ -70,8 +70,8 @@ public class QuizFunctionality : MonoBehaviour {
 				if (selGridInt != -1) {
 					//Debug.Log ("You chose " + selStrings2 [selGridInt]);
 					//Debug.Log ("Stored user answer is: " + quizManager.getUserAnswer (lessonNum, quizNum));
-					quizManager.setQuizCompleted (lessonNum, quizNum);
-					quizManager.setUserAnswer (lessonNum, quizNum, selGridInt);
+					//quizManager.setQuizCompleted (lessonNum, quizNum);
+					//quizManager.setUserAnswer (lessonNum, quizNum, selGridInt);
 					if (selGridInt == quizManager.getCorrectAnswer (lessonNum, quizNum)) {
 						answeredCorrectly = true;
 					}
