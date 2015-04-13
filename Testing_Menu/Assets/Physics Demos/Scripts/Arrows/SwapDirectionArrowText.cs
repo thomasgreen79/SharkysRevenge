@@ -11,9 +11,9 @@ public class SwapDirectionArrowText : MonoBehaviour {
 		Text buttonText = gameObject.GetComponent<Text>();
 		
 		if (showArrow) {
-			buttonText.text = "Hide";
+			buttonText.text = "Hide Velocity";
 		} else {
-			buttonText.text = "Show";
+			buttonText.text = "Show Velocity";
 		}
 	}
 }
