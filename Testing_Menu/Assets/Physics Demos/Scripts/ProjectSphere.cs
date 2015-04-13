@@ -5,6 +5,7 @@ public class ProjectSphere : MonoBehaviour {
 	
 	public float speed;
 	public float angle;
+	public float arrowLength;
 	
 	private Vector3 initialPos;
 	private Vector3 initialVel;
@@ -72,6 +73,14 @@ public class ProjectSphere : MonoBehaviour {
 				pausedVel = rigidbody.velocity;
 			}
 		}
+
+		if (transform.position.y > initialPos.y) {
+			transform.position = new Vector3(
+				transform.position.x,
+				initialPos.y,
+				transform.position.z
+			);
+		}
 	}
 	
 	float getAngle() {
@@ -119,8 +128,11 @@ public class ProjectSphere : MonoBehaviour {
 		
 		float curAngle, lineX, lineZ, scaleX, scaleZ;
 		
-		scaleX = transform.localScale.x / 2;
-		scaleZ = transform.localScale.z / 2;
+		//scaleX = transform.localScale.x / 2;
+		//scaleZ = transform.localScale.z / 2;
+
+		scaleX = 0;
+		scaleZ = 0;
 		
 		curAngle = getAngle();
 		lineX = transform.position.x + Mathf.Cos (curAngle) * scaleX;
@@ -128,8 +140,8 @@ public class ProjectSphere : MonoBehaviour {
 		
 		line.SetPosition (0, new Vector3(lineX, transform.position.y, lineZ));		
 		
-		lineX = transform.position.x + Mathf.Cos (curAngle) * (scaleX + getSpeed());
-		lineZ = transform.position.z + Mathf.Sin (curAngle) * (scaleZ + getSpeed());
+		lineX = transform.position.x + Mathf.Cos (curAngle) * (scaleX + getSpeed() * arrowLength);
+		lineZ = transform.position.z + Mathf.Sin (curAngle) * (scaleZ + getSpeed() * arrowLength);
 		
 		line.SetPosition (1, new Vector3(lineX, transform.position.y, lineZ));
 	}
@@ -139,7 +151,7 @@ public class ProjectSphere : MonoBehaviour {
 		pausedVel = initialVel;
 		transform.position = initialPos;
 		rigidbody.velocity = initialVel;
-		rigidbody.rotation = Quaternion.Euler(new Vector3 (0.0f, 0.0f, 0.0f));
+		rigidbody.angularVelocity = new Vector3 (0.0f, 0.0f, 0.0f);
 	}
 	
 }
