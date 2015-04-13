@@ -72,6 +72,14 @@ public class ProjectSphere : MonoBehaviour {
 				pausedVel = rigidbody.velocity;
 			}
 		}
+
+		if (transform.position.y > initialPos.y) {
+			transform.position = new Vector3(
+				transform.position.x,
+				initialPos.y,
+				transform.position.z
+			);
+		}
 	}
 
 	float getAngle() {
@@ -139,6 +147,7 @@ public class ProjectSphere : MonoBehaviour {
 		pausedVel = initialVel;
 		transform.position = initialPos;
 		rigidbody.velocity = initialVel;
+		rigidbody.rotation = Quaternion.Euler (new Vector3 (0.0f, 0.0f, 0.0f));
 	}
 
 }
