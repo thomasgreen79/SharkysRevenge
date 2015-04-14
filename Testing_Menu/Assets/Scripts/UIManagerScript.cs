@@ -24,6 +24,10 @@ public class UIManagerScript : ScriptableObject {
 		accessibleScenes.Add ("Lesson1_1");
 	}
 
+	public void setCanAddTrue(){
+		canAdd = true;
+	}
+
 	public void addNewAccessibleScenes(string newAccessibleScenes){
 		if (newAccessibleScenes != null){
 			if (!accessibleScenes.Contains(newAccessibleScenes) && canAdd){

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/*
 namespace Quizzes{
 public class QuizFunctionality : MonoBehaviour {
 
@@ -58,7 +58,7 @@ public class QuizFunctionality : MonoBehaviour {
 				GUI.backgroundColor = Color.white;
 				GUI.color = Color.white;
 				GUI.contentColor = Color.black;
-				*/
+
 			selSubmit = GUILayout.Button ("Submit", gStyle);
 
 			if (showText) {
@@ -89,3 +89,4 @@ public class QuizFunctionality : MonoBehaviour {
 	}
 }
 }
+*/
