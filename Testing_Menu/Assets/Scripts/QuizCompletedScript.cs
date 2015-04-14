@@ -11,16 +11,18 @@ public class QuizCompletedScript : MonoBehaviour {
 
 	void OnLevelWasLoaded(){
 			int i = 0;
+			quizManager.setLessonNum (lessonNum);
+			quizManager.setQuizNum (quizNum);
 			foreach (Transform child in this.transform) {
 				Toggle toggleRef = child.GetComponent<Toggle>();
-				if (quizManager.getUserAnswer (lessonNum, quizNum) == i){
+				if (quizManager.getUserAnswer () == i){
 					toggleRef.isOn = true;
 				}
 				foreach (Transform secondChild in child.transform){
 					if (secondChild.name == "Label"){
-						if (quizManager.getCorrectAnswer (lessonNum, quizNum) == i) {
+						if (quizManager.getCorrectAnswer () == i) {
 							secondChild.GetComponentInChildren<Text>().color = Color.green;
-						} else if (quizManager.getUserAnswer (lessonNum, quizNum) == i) {
+						} else if (quizManager.getUserAnswer () == i) {
 							secondChild.GetComponentInChildren<Text>().color = Color.red;
 						} else {
 							secondChild.GetComponentInChildren<Text>().color = Color.white;

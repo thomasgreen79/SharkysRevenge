@@ -57,6 +57,15 @@ public class UIManagerScript : ScriptableObject {
 		}
 	}
 
+	public void setUserFeedback(GameObject userFBack){
+		userFeedback = userFBack;
+	}
+
+	public void activateUserFeedback(){
+		updatingFeedback = true;
+		userFeedback.SetActive (true);
+	}
+
 	void Update(){
 		newTouch = false;
 		updatingFeedback = false;
