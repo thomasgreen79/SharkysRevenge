@@ -23,6 +23,18 @@ public class UIManagerScript : ScriptableObject {
 		accessibleScenes.Add ("IntroductionScreen");
 		accessibleScenes.Add ("Lesson1_1");
 		accessibleScenes.Add ("Demo103");
+		accessibleScenes.Add ("Demo104");
+		accessibleScenes.Add ("Demo107");
+		accessibleScenes.Add ("Demo110");
+		accessibleScenes.Add ("Demo204");
+		accessibleScenes.Add ("Demo205");
+		accessibleScenes.Add ("Demo207");
+		accessibleScenes.Add ("Demo303");
+		accessibleScenes.Add ("Demo305");
+		accessibleScenes.Add ("Demo402");
+		accessibleScenes.Add ("Demo404");
+		accessibleScenes.Add ("Demo405");
+		accessibleScenes.Add ("Demo408");		
 	}
 
 	public void setCanAddTrue(){

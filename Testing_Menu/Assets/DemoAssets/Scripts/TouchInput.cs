@@ -34,7 +34,7 @@ public class TouchInput : MonoBehaviour {
 					endPosition = Input.mousePosition;
 					directionVec = endPosition - startPosition;
 					recipient.SendMessage("updateMovement", directionVec.normalized, SendMessageOptions.DontRequireReceiver);
-					recipient.SendMessage ("updateSpeed", (directionVec.magnitude*18), SendMessageOptions.DontRequireReceiver);
+					recipient.SendMessage ("updateSpeed", (directionVec.magnitude*10), SendMessageOptions.DontRequireReceiver);
 					isClicked = false;
 				}
 			}

@@ -17,7 +17,7 @@ public class QuizManagerScript : ScriptableObject {
 			
 			List<int> answers = new List<int> ();
 			answers.Add (0);
-			answers.Add (2);
+			answers.Add (0);
 			answers.Add (1);
 			Lessons.Add (new QuizData (answers.Count, answers));
 
