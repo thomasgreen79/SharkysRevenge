@@ -18,7 +18,7 @@ public class QuizManagerScript : ScriptableObject {
 			List<int> answers = new List<int> ();
 			answers.Add (0);
 			answers.Add (0);
-			answers.Add (1);
+			answers.Add (3);
 			Lessons.Add (new QuizData (answers.Count, answers));
 
 			List<int> answers1 = new List<int> ();
@@ -65,10 +65,6 @@ public class QuizManagerScript : ScriptableObject {
 		if (Lessons == null) {
 			initLessons ();
 		}
-		//string[] numStrings = input.Split (' ');
-		//int lessonNum = int.Parse (numStrings[0]);
-		//int quizNum = int.Parse (numStrings[1]);
-		//int answer = int.Parse (numStrings[2]);
 		if (Lessons == null) {
 			initLessons ();
 		}
@@ -79,9 +75,6 @@ public class QuizManagerScript : ScriptableObject {
 		if (Lessons == null) {
 			initLessons ();
 		}
-			//string[] numStrings = input.Split (' ');
-			//int lessonNum = int.Parse (numStrings[0]);
-			//int quizNum = int.Parse (numStrings[1]);
 		Lessons[lessonNum-1].setQuizCompleted (quizNum-1);
 	}
 
@@ -111,18 +104,15 @@ public class QuizManagerScript : ScriptableObject {
 	}
 
 	public void submitQuiz(string scenesToAdd){
-		//check if user selected answer
-			//if yes, add new scenes to available scenes and load quiz completed
-			//else display select answer feedback GUI
-			if (getUserAnswer () > -1) {
-				uiManager.setCanAddTrue();
-				uiManager.addNewAccessibleScenes(scenesToAdd);
-				setQuizCompleted ();
-				loadQuiz ();
-			} else {
-				uiManager.setUserFeedback(notSubmittedText);
-				uiManager.activateUserFeedback();
-			}
+		if (getUserAnswer () > -1) {
+			uiManager.setCanAddTrue();
+			uiManager.addNewAccessibleScenes(scenesToAdd);
+			setQuizCompleted ();
+			loadQuiz ();
+		} else {
+			uiManager.setUserFeedback(notSubmittedText);
+			uiManager.activateUserFeedback();
+		}
 	}
 }
 }
