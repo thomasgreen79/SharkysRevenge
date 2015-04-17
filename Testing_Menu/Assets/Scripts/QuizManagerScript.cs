@@ -22,9 +22,7 @@ public class QuizManagerScript : ScriptableObject {
 			Lessons.Add (new QuizData (answers.Count, answers));
 
 			List<int> answers1 = new List<int> ();
-			answers1.Add (1);
 			answers1.Add (3);
-			answers1.Add (2);
 			Lessons.Add (new QuizData (answers1.Count, answers1));
 
 			List<int> answers2 = new List<int> ();
@@ -32,6 +30,12 @@ public class QuizManagerScript : ScriptableObject {
 			answers2.Add (2);
 			answers2.Add (0);
 			Lessons.Add (new QuizData (answers2.Count, answers2));
+
+			List<int> answers3 = new List<int> ();
+			answers3.Add (3);
+			answers3.Add (2);
+			answers3.Add (0);
+			Lessons.Add (new QuizData (answers3.Count, answers3));
 		}
 	}
 
