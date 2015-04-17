@@ -30,7 +30,7 @@ public class UIManagerScript : ScriptableObject {
 		accessibleScenes.Add ("Demo205");
 		accessibleScenes.Add ("Demo207");
 		accessibleScenes.Add ("Demo303");
-		accessibleScenes.Add ("Demo305");
+		accessibleScenes.Add ("Demo306");
 		accessibleScenes.Add ("Demo402");
 		accessibleScenes.Add ("Demo404");
 		accessibleScenes.Add ("Demo405");
