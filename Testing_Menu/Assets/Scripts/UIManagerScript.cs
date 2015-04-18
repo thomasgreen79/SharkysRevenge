@@ -69,8 +69,10 @@ public class UIManagerScript : ScriptableObject {
 				Debug.LogError ("Failed to load scene: " + sceneName);
 			}
 		} else {
-			updatingFeedback = true;
-			userFeedback.SetActive(true);
+			if (userFeedback != null){
+				updatingFeedback = true;
+				userFeedback.SetActive(true);
+			}
 		}
 	}
 
@@ -79,8 +81,10 @@ public class UIManagerScript : ScriptableObject {
 	}
 
 	public void activateUserFeedback(){
-		updatingFeedback = true;
-		userFeedback.SetActive (true);
+		if (userFeedback != null){
+			updatingFeedback = true;
+			userFeedback.SetActive(true);
+		}
 	}
 
 	void Update(){

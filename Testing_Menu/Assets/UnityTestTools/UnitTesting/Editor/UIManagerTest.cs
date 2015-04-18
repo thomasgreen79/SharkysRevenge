@@ -9,7 +9,7 @@ namespace Navigation {
 		[Test]
 		public void ChangeSceneCorrect (){
 			UIManagerScript testObject1 = ScriptableObject.CreateInstance("UIManagerScript")as UIManagerScript;
-			String testLevelName = "TitleScreen";
+			String testLevelName = "LessonMenu";
 			testObject1.changeSceneButton(testLevelName);
 			String actualLevelName = Application.loadedLevelName;
 			
