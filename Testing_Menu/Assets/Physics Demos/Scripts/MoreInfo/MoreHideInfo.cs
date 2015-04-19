@@ -9,15 +9,16 @@ public static class MoreHideInfo {
 
 		if (showInfo == true) {
 			showInfo = false;
-
-			Debug.Log ("showInfo = false");
 		} else {
 			showInfo = true;
-			Debug.Log ("showInfo = true");
 		}
 	}
 
 	public static bool isInfoShown() {
 		return showInfo;
+	}
+
+	public static void setShowInfo(bool newShowInfo) {
+		showInfo = newShowInfo;
 	}
 }

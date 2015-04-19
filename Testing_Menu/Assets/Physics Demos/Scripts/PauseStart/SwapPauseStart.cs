@@ -3,7 +3,10 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class SwapPauseStart : MonoBehaviour {
-	
+
+	void Start() {
+		StartPause.setPaused (true);
+	}
 
 	
 	// Update is called once per frame

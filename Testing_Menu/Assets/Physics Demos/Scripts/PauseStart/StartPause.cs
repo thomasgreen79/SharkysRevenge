@@ -8,14 +8,16 @@ public static class StartPause {
 	public static void Pause () {
 		if (paused == true) {
 			paused = false;
-			Debug.Log ("paused = false");
 		} else {
 			paused = true;
-			Debug.Log ("paused = true");
 		}
 	}
 
 	public static bool isPaused() {
 		return paused;
+	}
+
+	public static void setPaused(bool newPaused) {
+		paused = newPaused;
 	}
 }

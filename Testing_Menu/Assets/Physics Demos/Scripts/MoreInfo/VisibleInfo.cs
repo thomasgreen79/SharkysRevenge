@@ -7,6 +7,7 @@ public class VisibleInfo : MonoBehaviour {
 	private bool visible;
 
 	void Start() {
+		MoreHideInfo.setShowInfo (true);
 		Visible ();
 	}
 
