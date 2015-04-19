@@ -8,6 +8,7 @@ public class LessonMenuLoad : MonoBehaviour {
 	public Button lesson2Button;
 	public Button lesson3Button;
 	public Button lesson4Button;
+	public GameObject practiceMenuButton;
 
 	void OnLevelWasLoaded(){
 		if (uMan.ContainsScene("Lesson2_1")){
@@ -18,6 +19,9 @@ public class LessonMenuLoad : MonoBehaviour {
 		}
 		if (uMan.ContainsScene("Lesson4_1")){
 			lesson4Button.interactable = true;
+		}
+		if (uMan.ContainsScene ("PracticeMenu")) {
+			practiceMenuButton.SetActive(true);
 		}
 	}
 }
