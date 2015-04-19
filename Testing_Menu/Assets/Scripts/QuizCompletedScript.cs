@@ -20,6 +20,8 @@ public class QuizCompletedScript : MonoBehaviour {
 				}
 				foreach (Transform secondChild in child.transform){
 					if (secondChild.name == "Label"){
+						Text textRef = secondChild.GetComponent<Text>();
+						quizManager.addQuizText(textRef.text);
 						if (quizManager.getCorrectAnswer () == i) {
 							secondChild.GetComponentInChildren<Text>().color = Color.green;
 						} else if (quizManager.getUserAnswer () == i) {

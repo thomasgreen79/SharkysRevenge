@@ -65,6 +65,13 @@ public class QuizManagerScript : ScriptableObject {
 		return Lessons[lessonNum-1].getCorrectAnswer(quizNum-1);
 	}
 
+	public string getQuizText(int answerNum){
+		if (Lessons == null) {
+			initLessons ();
+		}
+		return Lessons [lessonNum - 1].getQuizTextByAnswerNum (quizNum - 1, answerNum - 1);
+	}
+
 	public void setUserAnswer(int answer){
 		if (Lessons == null) {
 			initLessons ();
@@ -80,6 +87,13 @@ public class QuizManagerScript : ScriptableObject {
 			initLessons ();
 		}
 		Lessons[lessonNum-1].setQuizCompleted (quizNum-1);
+	}
+
+	public void addQuizText(string text){
+		if (Lessons == null) {
+			initLessons ();
+		}
+		Lessons [lessonNum - 1].addQuizText (quizNum - 1, text);
 	}
 
 	public void loadQuiz(){
