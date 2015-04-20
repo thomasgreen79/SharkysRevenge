@@ -7,6 +7,10 @@ public class Win : MonoBehaviour {
 
 	bool showGUI = false;
 
+	void Start() {
+		Score.resetScore ();
+	}
+
 	// Update is called once per frame
 	void Update () {
 		if (Score.getScore () >= scoreToWin) {

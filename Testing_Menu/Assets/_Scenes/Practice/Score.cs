@@ -12,4 +12,8 @@ public static class Score {
 	public static int getScore() {
 		return currentScore;
 	}
+
+	public static void resetScore() {
+		currentScore = 0;
+	}
 }
