@@ -34,7 +34,11 @@ public class UIManagerScript : ScriptableObject {
 		accessibleScenes.Add ("Demo402");
 		accessibleScenes.Add ("Demo404");
 		accessibleScenes.Add ("Demo405");
-		accessibleScenes.Add ("Demo408");		
+		accessibleScenes.Add ("Demo408");
+		accessibleScenes.Add ("Practice1");
+		accessibleScenes.Add ("Practice2");
+		accessibleScenes.Add ("Practice3");
+		accessibleScenes.Add ("Practice4");
 	}
 
 	public bool ContainsScene(string sceneName){

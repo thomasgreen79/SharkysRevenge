@@ -10,7 +10,5 @@ namespace PoolKit
 		void Start () {
 			Application.targetFrameRate = framerate;
 		}
-		
-
 	}
 }

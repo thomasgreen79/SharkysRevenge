@@ -35,11 +35,15 @@ namespace PoolKit
 		void OnTriggerEnter(Collider col)
 		{
 			PoolBall pb = col.GetComponent<PoolBall>();
+
 			if(col.name.Contains("Ball"))
 			{	
-				BaseGameManager.ballEnterPocket(triggerID,pb);
-				pb.enterPocket();
-			}
+				print (col.name);
+				BaseGameManager.ballEnterPocket(triggerID, pb);
+				if (pb != null) {
+					pb.enterPocket();
+				}
+			} 
 		}
 	}
 }
