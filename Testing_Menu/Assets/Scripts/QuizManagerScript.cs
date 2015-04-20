@@ -10,6 +10,7 @@ public class QuizManagerScript : ScriptableObject {
 	public int lessonNum;
 	public int quizNum;
 	public GameObject notSubmittedText;
+	public GameObject unavailableScene;
 
 	public void initLessons(){
 		if (Lessons == null) {
@@ -26,15 +27,15 @@ public class QuizManagerScript : ScriptableObject {
 			Lessons.Add (new QuizData (answers1.Count, answers1));
 
 			List<int> answers2 = new List<int> ();
-			answers2.Add (3);
-			answers2.Add (2);
+			answers2.Add (0);
+			answers2.Add (1);
 			answers2.Add (0);
 			Lessons.Add (new QuizData (answers2.Count, answers2));
 
 			List<int> answers3 = new List<int> ();
-			answers3.Add (3);
 			answers3.Add (2);
-			answers3.Add (0);
+			answers3.Add (3);
+			answers3.Add (3);
 			Lessons.Add (new QuizData (answers3.Count, answers3));
 		}
 	}
@@ -114,10 +115,17 @@ public class QuizManagerScript : ScriptableObject {
 		string[] numStrings = nums.Split (' ');
 		int lessonNum = int.Parse (numStrings[0]);
 		int quizNum = int.Parse (numStrings[1]);
-		if (!Lessons[lessonNum-1].getQuizCompleted(quizNum-1)) {
-			Application.LoadLevel("Lesson" + lessonNum + "_Quiz" + quizNum);
+		if (uiManager.ContainsScene ("Lesson" + lessonNum + "_Quiz" + quizNum)) {
+			if (!Lessons [lessonNum - 1].getQuizCompleted (quizNum - 1)) {
+				uiManager.changeSceneButton ("Lesson" + lessonNum + "_Quiz" + quizNum);
+				//Application.LoadLevel("Lesson" + lessonNum + "_Quiz" + quizNum);
+			} else {
+				uiManager.changeSceneButton ("Lesson" + lessonNum + "_Quiz" + quizNum + "_Completed");
+				//Application.LoadLevel("Lesson" + lessonNum + "_Quiz" + quizNum + "_Completed");
+			}
 		} else {
-			Application.LoadLevel("Lesson" + lessonNum + "_Quiz" + quizNum + "_Completed");
+			uiManager.setUserFeedback(unavailableScene);
+			uiManager.activateUserFeedback();
 		}
 	}
 
